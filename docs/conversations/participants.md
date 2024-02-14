@@ -9,7 +9,7 @@ In the following, "Current user" means the user that has authenticated with the 
 ## Get participants
 
 ```bash
-curl "https://example.ziik.io/api/chat/2/participants"
+curl "https://example.ziik.io/api/conversations/2/participants"
   -H "Authorization: Bearer aaaaaa.bbbbbbb.ccccccc"
 ```
 
@@ -46,7 +46,7 @@ This endpoint retrieves all participants in a specific chat conversation.
 
 ### HTTP Request
 
-`GET https://example.ziik.io/api/chat/ID/participants`
+`GET https://example.ziik.io/api/conversations/ID/participants`
 
 ### URL Parameters
 
@@ -57,7 +57,7 @@ ID | Integer | The ID of the chat conversation to retrieve participants for
 ## Add participants
 
 ```bash
-curl -i -X POST "https://example.ziik.io/api/chat/2/participants"
+curl -i -X POST "https://example.ziik.io/api/conversations/2/participants"
   -H "Authorization: Bearer aaaaaaaaa.bbbbbbbbb.cccccccccc"
 ```
 
@@ -70,7 +70,7 @@ This endpoint adds participants to a given conversation.
 
 ### HTTP Request
 
-`POST https://example.ziik.io/api/chat/ID/participants`
+`POST https://example.ziik.io/api/conversations/ID/participants`
 
 ### URL Parameters
 
@@ -87,7 +87,7 @@ participants | array | Yes | Array of one or more participants IDs.
 ## Update participant
 
 ```bash
-curl -i -X PATCH "https://example.ziik.io/api/chat/2/participants/5"
+curl -i -X PATCH "https://example.ziik.io/api/conversations/2/participants/5"
   -H "Authorization: Bearer aaaaaaaaa.bbbbbbbbb.cccccccccc"
 ```
 
@@ -100,7 +100,7 @@ This endpoint updates a participant in a given conversation.
 
 ### HTTP Request
 
-`PATCH https://example.ziik.io/api/chat/ID/participants/USERID`
+`PATCH https://example.ziik.io/api/conversations/ID/participants/USERID`
 
 ### URL Parameters
 Parameter | Type | Description
@@ -122,7 +122,7 @@ type | integer | Yes | Type of participant - 1 for normal and 2 for admin.
 ## Remove participant
 
 ```bash
-curl -i -X DELETE "https://example.ziik.io/api/chat/2/participants/5"
+curl -i -X DELETE "https://example.ziik.io/api/conversations/2/participants/5"
   -H "Authorization: Bearer aaaaaaaaa.bbbbbbbbb.cccccccccc"
 ```
 
@@ -135,7 +135,7 @@ This endpoint removes a participant from a given conversation.
 
 ### HTTP Request
 
-`DELETE https://example.ziik.io/api/chat/ID/participants/USERID`
+`DELETE https://example.ziik.io/api/conversations/ID/participants/USERID`
 
 ### URL Parameters
 
