@@ -1,10 +1,5 @@
 # Conversations
-
-Any user can contact any other user through the chat, to quickly inform or request information - or just say hi.
-
-::: tip
-In the following, "Current user" means the user that has authenticated with the API, identified by the access token.
-:::
+Any user can contact any other user through the chat to quickly inform or request information.
 
 ## Create New Conversation
 
@@ -13,7 +8,7 @@ Conversation type is determined upon creation. When only one recipient is added 
 :::
 
 ```bash
-curl -i -X POST "https://example.ziik.io/api/chat"
+curl -i -X POST "https://example.ziik.io/api/conversations"
   -H "Authorization: Bearer aaaaaaaaa.bbbbbbbbb.cccccccccc"
   -d "{\"recipients\": {123, 234, 345}, \"message\": \"This message is for all of you\"}"
 ```
@@ -69,7 +64,7 @@ This endpoint creates a new message to a number of recipients from the current u
 
 ### HTTP Request
 
-`POST https://example.ziik.io/api/chat`
+`POST https://example.ziik.io/api/conversations`
 
 ### Request Parameters
 
@@ -79,10 +74,10 @@ This endpoint creates a new message to a number of recipients from the current u
 | message    | String  | Yes      | Message string.                                                                       |
 | fileCount  | Integer | No       | Number of files that will be uploaded with subsequent POSTs to /api/messages/ID/files |
 
-## Get Conversations
+## List all conversations
 
 ```bash
-curl "https://example.ziik.io/api/chat"
+curl "https://example.ziik.io/api/conversations"
   -H "Authorization: Bearer aaaaaaaaa.bbbbbbbbb.cccccccccc"
 ```
 
@@ -93,86 +88,56 @@ curl "https://example.ziik.io/api/chat"
 	"data": [
 		{
 			"id": 1,
-			"content_type": "conversation",
-			"title": "Sint quaerat ut est laborum.",
 			"type": 1,
+			"title": "Sint quaerat ut est laborum.",
+			"unread_message_count": 0,
+			"mute_rule": null,
 			"publish": {
 				"created_at": 1540365820,
 				"updated_at": 1540365820
 			},
-			"interaction": {
-				"seen": true
-			},
 			"latestMessage": {
-				"content_type": "message",
 				"id": 3,
+				"type": 1,
 				"conversationId": 1,
+				"is_reply": false,
+				"parent": null,
+				"deleted": false,
 				"message": "Dicta ea qui enim labore. Perspiciatis consequatur quia dolorum est quis nihil neque. Quidem qui aspernatur quidem.",
 				"date": 1540365820,
-				"is_new": true,
+				"files": [],
+				"reactions": [],
+				"uploading_files": 0,
 				"author": {
-					"content_type": "user",
 					"id": 6,
 					"name": "Stella Donnelly",
 					"first_name": "Stella",
 					"last_name": "Donnelly",
-					"title": "Engine Assembler",
-					"avatar": null,
 					"active": true,
-					"unit": {
-						"content_type": "unit",
-						"id": 1,
-						"name": "HQ",
-						"level": 0,
-						"unit_type": "unit",
-						"url": "api/units/1"
-					},
-					"physicalUnit": {
-						"content_type": "unit",
-						"id": 1,
-						"name": "HQ",
-						"level": 0,
-						"unit_type": "unit",
-						"url": "api/units/1"
-					},
-					"url": "api/users/6"
-				},
-				"files": [],
-				"uploading_files": 0,
-				"url": "api/messages/3"
+					"avatar": null,
+				}
 			},
 			"participants": [
 				{
-					"content_type": "user",
 					"id": 3,
 					"name": "Else Considine",
 					"first_name": "Else",
 					"last_name": "Considine",
-					"title": "Biochemist",
 					"avatar": null,
 					"active": true,
-					"unit": {
-						"content_type": "unit",
-						"id": 1,
-						"name": "HQ",
-						"level": 0,
-						"unit_type": "unit",
-						"url": "api/units/1"
-					},
-					"url": "api/users/3"
+					"participant_type": 1,
 				}
-			],
-			"url": "api/chat/1"
+			]
 		}
 	]
 }
 ```
 
-This endpoint retrieves chat conversations for the current user.
+This endpoint retrieves conversations for the current user.
 
 ### HTTP Request
 
-`GET https://example.ziik.io/api/chat`
+`GET https://example.ziik.io/api/conversations`
 
 ### Query Parameters
 
@@ -185,7 +150,7 @@ This endpoint retrieves chat conversations for the current user.
 ## Get Specific Conversation
 
 ```bash
-curl "https://example.ziik.io/api/chat/2"
+curl "https://example.ziik.io/api/conversations/2"
   -H "Authorization: Bearer aaaaaa.bbbbbbb.ccccccc"
 ```
 
@@ -273,7 +238,7 @@ This endpoint retrieves a specific chat conversation.
 
 ### HTTP Request
 
-`GET https://example.ziik.io/api/chat/ID`
+`GET https://example.ziik.io/api/conversations/ID`
 
 ### URL Parameters
 
@@ -284,7 +249,7 @@ This endpoint retrieves a specific chat conversation.
 ## Get Conversation Files
 
 ```bash
-curl "https://example.ziik.io/api/chat/2/files"
+curl "https://example.ziik.io/api/conversations/2/files"
   -H "Authorization: Bearer aaaaaa.bbbbbbb.ccccccc"
 ```
 
@@ -321,8 +286,8 @@ curl "https://example.ziik.io/api/chat/2/files"
 		}
 	],
 	"links": {
-		"first": "https://example.ziik.io/api/chat/1/files?page=1",
-		"last": "https://example.ziik.io/api/chat/1/files?page=1",
+		"first": "https://example.ziik.io/api/conversations/1/files?page=1",
+		"last": "https://example.ziik.io/api/conversations/1/files?page=1",
 		"prev": null,
 		"next": null
 	},
@@ -330,7 +295,7 @@ curl "https://example.ziik.io/api/chat/2/files"
 		"current_page": 1,
 		"from": 1,
 		"last_page": 1,
-		"path": "https://example.ziik.io/api/chat/1/files",
+		"path": "https://example.ziik.io/api/conversations/1/files",
 		"per_page": 3,
 		"to": 1,
 		"total": 1
@@ -342,7 +307,7 @@ This endpoint retrieves files uploaded to any message in a chat conversation.
 
 ### HTTP Request
 
-`GET https://example.ziik.io/api/chat/ID/files`
+`GET https://example.ziik.io/api/conversations/ID/files`
 
 ### URL Parameters
 
@@ -353,7 +318,7 @@ This endpoint retrieves files uploaded to any message in a chat conversation.
 ## Mark Conversation Read
 
 ```bash
-curl -i -X POST "https://example.ziik.io/api/chat/2/seen"
+curl -i -X POST "https://example.ziik.io/api/conversations/2/seen"
   -H "Authorization: Bearer aaaaaaaaa.bbbbbbbbb.cccccccccc"
 ```
 
@@ -367,7 +332,7 @@ This endpoint marks all messages in a given conversation read by the current use
 
 ### HTTP Request
 
-`POST https://example.ziik.io/api/chat/ID/seen`
+`POST https://example.ziik.io/api/conversations/ID/seen`
 
 ### URL Parameters
 
@@ -378,7 +343,7 @@ This endpoint marks all messages in a given conversation read by the current use
 ## Update group chat title
 
 ```bash
-curl -i -X PATCH "https://example.ziik.io/api/chat/2"
+curl -i -X PATCH "https://example.ziik.io/api/conversations/2"
   -H "Authorization: Bearer aaaaaaaaa.bbbbbbbbb.cccccccccc"
   -d "{ [...] }"
 ```
@@ -393,7 +358,7 @@ This endpoint updates an group chat title.
 
 ### HTTP Request
 
-`PATCH https://example.ziik.io/api/chat/ID`
+`PATCH https://example.ziik.io/api/conversations/ID`
 
 | Parameter | Type   | Required | Description          |
 | --------- | ------ | -------- | -------------------- |
@@ -402,7 +367,7 @@ This endpoint updates an group chat title.
 ## Delete a Conversation
 
 ```bash
-curl -i -X DELETE "https://example.ziik.io/api/chat/2"
+curl -i -X DELETE "https://example.ziik.io/api/conversations/2"
   -H "Authorization: Bearer aaaaaa.bbbbbbb.ccccccc"
 ```
 
@@ -417,7 +382,7 @@ The conversation with all the messages will still be visible to other participan
 
 ### HTTP Request
 
-`DELETE https://example.ziik.io/api/chat/ID`
+`DELETE https://example.ziik.io/api/conversations/ID`
 
 ### URL Parameters
 

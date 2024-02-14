@@ -1,13 +1,9 @@
 # Messages
 
-::: tip
-Normal messages have a type of 1 and service messages have a type of 2. The message field will be a json field with relevant information for service messages.
-:::
-
-## Add Message To Existing Conversation
+## Create message
 
 ```bash
-curl -i -X POST "https://example.ziik.io/api/chat/1234/reply"
+curl -i -X POST "https://example.ziik.io/api/conversations/1234/messages"
   -H "Authorization: Bearer aaaaaaaaa.bbbbbbbbb.cccccccccc"
   -d "{\"message\": \"This message is for all of you\"}"
 ```
@@ -63,7 +59,7 @@ This endpoint creates a new message in an existing conversation.
 
 ### HTTP Request
 
-`POST https://example.ziik.io/api/chat/ID/reply`
+`POST https://example.ziik.io/api/conversations/ID/messages`
 
 ### Request Parameters
 
@@ -75,7 +71,7 @@ fileCount | Integer | No | Number of files that will be uploaded with subsequent
 ## Get Conversation Messages
 
 ```bash
-curl "https://example.ziik.io/api/chat/2/messages"
+curl "https://example.ziik.io/api/conversations/2/messages"
   -H "Authorization: Bearer aaaaaa.bbbbbbb.ccccccc"
 ```
 
@@ -131,7 +127,7 @@ This endpoint retrieves all messages in a specific chat conversation.
 
 ### HTTP Request
 
-`GET https://example.ziik.io/api/chat/ID/messages`
+`GET https://example.ziik.io/api/conversations/ID/messages`
 
 ### URL Parameters
 
@@ -149,7 +145,7 @@ message | Integer | null | Optional ID of a message in the conversation. If give
 ## Get Single Message
 
 ```bash
-curl "https://example.ziik.io/api/messages/2"
+curl "https://example.ziik.io/api/conversations/ID/messages/2"
   -H "Authorization: Bearer aaaaaa.bbbbbbb.ccccccc"
 ```
 
@@ -203,7 +199,7 @@ This endpoint retrieves a specific message.
 
 ### HTTP Request
 
-`GET https://example.ziik.io/api/messages/ID`
+`GET https://example.ziik.io/api/conversations/ID/messages/ID`
 
 ### URL Parameters
 
@@ -211,34 +207,10 @@ Parameter | Type | Description
 --------- | ---- | -----------
 ID | Integer | The ID of the message to retrieve
 
-## Mark Message Read
-
-```bash
-curl -i -X POST "https://example.ziik.io/api/messages/2/read"
-  -H "Authorization: Bearer aaaaaaaaa.bbbbbbbbb.cccccccccc"
-```
-
-> The above command returns 204 No Content on success
-
-```http
-HTTP/1.0 204 No Content
-```
-This endpoint marks a message as read by the current user.
-
-### HTTP Request
-
-`POST https://example.ziik.io/api/messages/ID/read`
-
-### URL Parameters
-
-Parameter | Type | Description
---------- | ---- | -----------
-ID | Integer | The ID of the message to mark read
-
 ## Delete a Message
 
 ```bash
-curl -i -X DELETE "https://example.ziik.io/api/messages/2"
+curl -i -X DELETE "https://example.ziik.io/api/conversations/ID/messages/2"
   -H "Authorization: Bearer aaaaaa.bbbbbbb.ccccccc"
 ```
 
@@ -253,7 +225,7 @@ The message will still be visible to other participants who have not deleted it,
 
 ### HTTP Request
 
-`DELETE https://example.ziik.io/api/messages/ID`
+`DELETE https://example.ziik.io/api/conversations/ID/messages/ID`
 
 ### URL Parameters
 
