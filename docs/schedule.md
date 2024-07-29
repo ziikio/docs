@@ -12,8 +12,7 @@ curl -i -X POST "https://example.ziik.io/api/shifts"
 
 > The above command returns 201 Created
 
-```http
-HTTP/1.0 201 Created
+```json
 {
   "data": {
     "id": 1,
