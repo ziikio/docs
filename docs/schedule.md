@@ -174,6 +174,7 @@ units | Array of integers | N/A | Filter to specific unit ids. Required if no as
 start | Integer | NULL | Unix timestamp of earliest start time of a registration
 end | Integer | NULL | Unix timestamp of latest start time of a registration
 type | String | All | Supported values: "shift" and "vacation"
+relations | Array of strings | None | List of relations to load with the registration. Supported values: "unit" and "assignee"
 
 ## Get Registration
 
