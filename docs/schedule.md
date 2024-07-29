@@ -10,24 +10,21 @@ curl -i -X POST "https://example.ziik.io/api/shifts"
   -d "{ [...] }"
 ```
 
-> The above command returns 201 Created with a location header for where to find the newly created shift
+> The above command returns 201 Created
 
 ```http
 HTTP/1.0 201 Created
-Location: https://example.ziik.io/api/shifts/1234
 {
   "data": {
     "id": 1,
-    "content_type": "schedule",
-    "date": {
-      "start": 1540857600,
-      "end": 1540861200
-    },
-    "type": "trade",
-    "trade": true,
+    "content_type": "shift",
+    "start": 1540857600,
+    "end": 1540861200,
     "note": null,
     "comment": null,
     "break": null,
+    "unit_id": 2,
+    "assignee_id": 3,
     "unit": {
       "content_type": "unit",
       "id": 2,
@@ -55,24 +52,6 @@ Location: https://example.ziik.io/api/shifts/1234
       },
       "url": "api/users/3"
     },
-    "creator": {
-      "content_type": "user",
-      "id": 2,
-      "name": "Johan Daniel",
-      "first_name": "Johan",
-      "last_name": "Daniel",
-      "title": "Shear Machine Set-Up Operator",
-      "avatar": null,
-      "unit": {
-        "content_type": "unit",
-        "id": 1,
-        "name": "HQ",
-        "level": 0,
-        "unit_type": "unit",
-        "url": "api/units/1"
-      },
-      "url": "api/users/2"
-    },
     "applicants": [],
     "permissions": {
       "edit": false,
@@ -82,8 +61,7 @@ Location: https://example.ziik.io/api/shifts/1234
       "close": false,
       "apply": false,
       "approve": false
-    },
-    "url": "api/shifts/1"
+    }
   }
 }
 ```
@@ -98,11 +76,10 @@ This endpoint creates a shift.
 
 Parameter | Type | Required | Description
 --------- | ---- |  ------- | -----------
-unit | Integer | No | Unit to create shift in. Defaults to user's own unit
+unit_id | Integer | Yes | Id of unit to create shift in.
 start | Integer | Yes | Unix timestamp of when the shift begins
 end | Integer | Yes | Unix timestamp of when the shift ends
-assigned | Integer | No | User ID of shift assignee
-trade | Boolean | No | Whether the shift should be available for trade
+assignee_id | Integer | No | User ID of shift assignee
 
 ### Permissions Required
 
