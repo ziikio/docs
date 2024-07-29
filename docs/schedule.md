@@ -17,12 +17,16 @@ HTTP/1.0 201 Created
 {
   "data": {
     "id": 1,
-    "content_type": "shift",
+    "type": "shift",
     "start": 1540857600,
     "end": 1540861200,
     "note": null,
     "comment": null,
     "break": null,
+    "open_for_trade": false,
+    "corrected_working_hours_start": null,
+    "corrected_working_hours_end": null,
+    "corrected_working_hours_note": null,
     "unit_id": 2,
     "assignee_id": 3,
     "unit": {
@@ -33,7 +37,7 @@ HTTP/1.0 201 Created
       "unit_type": "unit",
       "url": "api/units/2"
     },
-    "assigned": {
+    "assignee": {
       "content_type": "user",
       "id": 3,
       "name": "Caleigh Breitenberg",
@@ -88,7 +92,7 @@ assignee_id | Integer | No | User ID of shift assignee
 ## Get Shifts
 
 ```bash
-curl "https://example.ziik.io/api/shifts"
+curl "https://example.ziik.io/api/registrations"
   -H "Authorization: Bearer aaaaaaaaa.bbbbbbbbb.cccccccccc"
 ```
 
@@ -97,31 +101,33 @@ curl "https://example.ziik.io/api/shifts"
   "data": [
     {
       "id": 1,
-      "content_type": "schedule",
-      "date": {
-        "start": "1541462400",
-        "end": "1541469600"
-      },
-      "type": "taken",
-      "trade": false,
+      "type": "shift",
+      "start": 1540857600,
+      "end": 1540861200,
       "note": null,
-      "comment": "",
-      "break": 60,
+      "comment": null,
+      "break": null,
+      "open_for_trade": false,
+      "corrected_working_hours_start": null,
+      "corrected_working_hours_end": null,
+      "corrected_working_hours_note": null,
+      "unit_id": 2,
+      "assignee_id": 3,
       "unit": {
         "content_type": "unit",
-        "id": 1,
-        "name": "HQ",
-        "level": 0,
+        "id": 2,
+        "name": "Wyman, Beer and Hane",
+        "level": 1,
         "unit_type": "unit",
-        "url": "api/units/1"
+        "url": "api/units/2"
       },
-      "assigned": {
+      "assignee": {
         "content_type": "user",
         "id": 3,
-        "name": "Kadin Hill",
-        "first_name": "Kadin",
-        "last_name": "Hill",
-        "title": "Financial Analyst",
+        "name": "Caleigh Breitenberg",
+        "first_name": "Caleigh",
+        "last_name": "Breitenberg",
+        "title": "Postal Service Clerk",
         "avatar": null,
         "active": true,
         "unit": {
@@ -134,7 +140,6 @@ curl "https://example.ziik.io/api/shifts"
         },
         "url": "api/users/3"
       },
-      "creator": null,
       "applicants": [],
       "permissions": {
         "edit": false,
@@ -144,8 +149,7 @@ curl "https://example.ziik.io/api/shifts"
         "close": false,
         "apply": false,
         "approve": false
-      },
-      "url": "api/shifts/1"
+      }
     }
   ]
 }
@@ -156,23 +160,22 @@ This endpoint retrieves a list of shifts.
 
 ### HTTP Request
 
-`GET https://example.ziik.io/api/shifts`
+`GET https://example.ziik.io/api/registrations`
 
 ### Query Parameters
 
 Parameter | Type | Default | Description
 --------- | ---- | ------: | -----------
-unit | Integer | User's unit | Unit to fetch shifts for
-user | Integer | NULL | User to fetch shifts for. Overrides any unit parameter set
+assignee_id | Integer | N/A | Filter to a specific user id. Required if no units provided
+units | Array of integers | N/A | Filter to specific unit ids. Required if no assignee_id provided
 start | Integer | NULL | Unix timestamp of earliest start time of a shift
 end | Integer | NULL | Unix timestamp of latest start time of a shift
-includeVacations | Boolean | false | Whether to include vacations in the returned list
-types | Array | Any | One or more shift types to fetch - 1: taken, 2: trade, 3: open
+type | String | All | Supported values: "shift" and "vacation"
 
 ## Get Single Shift
 
 ```bash
-curl "https://example.ziik.io/api/shift/123"
+curl "https://example.ziik.io/api/registrations/123"
   -H "Authorization: Bearer aaaaaaaaa.bbbbbbbbb.cccccccccc"
 ```
 
@@ -182,31 +185,33 @@ curl "https://example.ziik.io/api/shift/123"
 {
   "data": {
     "id": 1,
-    "content_type": "schedule",
-    "date": {
-      "start": "1540771200",
-      "end": "1541469600"
-    },
-    "type": "taken",
-    "trade": false,
+    "type": "shift",
+    "start": 1540857600,
+    "end": 1540861200,
     "note": null,
-    "comment": "",
-    "break": 60,
+    "comment": null,
+    "break": null,
+    "open_for_trade": false,
+    "corrected_working_hours_start": null,
+    "corrected_working_hours_end": null,
+    "corrected_working_hours_note": null,
+    "unit_id": 2,
+    "assignee_id": 3,
     "unit": {
       "content_type": "unit",
-      "id": 1,
-      "name": "HQ",
-      "level": 0,
+      "id": 2,
+      "name": "Wyman, Beer and Hane",
+      "level": 1,
       "unit_type": "unit",
-      "url": "api/units/1"
+      "url": "api/units/2"
     },
-    "assigned": {
+    "assignee": {
       "content_type": "user",
       "id": 3,
-      "name": "Winona Schuster",
-      "first_name": "Winona",
-      "last_name": "Schuster",
-      "title": "Political Scientist",
+      "name": "Caleigh Breitenberg",
+      "first_name": "Caleigh",
+      "last_name": "Breitenberg",
+      "title": "Postal Service Clerk",
       "avatar": null,
       "active": true,
       "unit": {
@@ -219,7 +224,6 @@ curl "https://example.ziik.io/api/shift/123"
       },
       "url": "api/users/3"
     },
-    "creator": null,
     "applicants": [],
     "permissions": {
       "edit": false,
@@ -229,8 +233,7 @@ curl "https://example.ziik.io/api/shift/123"
       "close": false,
       "apply": false,
       "approve": false
-    },
-    "url": "api/shifts/1"
+    }
   }
 }
 ```
@@ -239,7 +242,7 @@ This endpoint returns a single shift
 
 ### HTTP Request
 
-`GET https://example.ziik.io/api/shifts/ID`
+`GET https://example.ziik.io/api/registrations/ID`
 
 ### URL Parameters
 
