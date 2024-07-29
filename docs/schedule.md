@@ -83,6 +83,9 @@ unit_id | Integer | Yes | Id of unit to create shift in
 assignee_id | Integer | No | User ID of shift assignee
 start | Integer | Yes | Unix timestamp of when the shift begins
 end | Integer | Yes | Unix timestamp of when the shift ends
+note | String | No | Private note only available to planners
+comment | String | No | Public note available to everyone with permission to view shifts
+break | Integer | No | Break in minutes
 
 ### Permissions Required
 
