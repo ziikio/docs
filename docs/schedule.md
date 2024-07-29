@@ -79,10 +79,10 @@ This endpoint creates a shift.
 
 Parameter | Type | Required | Description
 --------- | ---- |  ------- | -----------
-unit_id | Integer | Yes | Id of unit to create shift in.
+unit_id | Integer | Yes | Id of unit to create shift in
+assignee_id | Integer | No | User ID of shift assignee
 start | Integer | Yes | Unix timestamp of when the shift begins
 end | Integer | Yes | Unix timestamp of when the shift ends
-assignee_id | Integer | No | User ID of shift assignee
 
 ### Permissions Required
 
