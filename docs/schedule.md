@@ -88,7 +88,8 @@ end | Integer | Yes | Unix timestamp of when the shift ends
 
 * Schedule permission to units and shift's unit equal to user's unit or below
 
-## Get Shifts
+## Get registrations
+Registrations covers both shifts and vacations.
 
 ```bash
 curl "https://example.ziik.io/api/registrations"
@@ -155,7 +156,7 @@ curl "https://example.ziik.io/api/registrations"
 
 ```
 
-This endpoint retrieves a list of shifts.
+This endpoint retrieves a list of registrations. By default, both shifts and registrations will be returned. If you only want one type, please specify using the `type` query parameter.
 
 ### HTTP Request
 
@@ -167,11 +168,11 @@ Parameter | Type | Default | Description
 --------- | ---- | ------: | -----------
 assignee_id | Integer | N/A | Filter to a specific user id. Required if no units provided
 units | Array of integers | N/A | Filter to specific unit ids. Required if no assignee_id provided
-start | Integer | NULL | Unix timestamp of earliest start time of a shift
-end | Integer | NULL | Unix timestamp of latest start time of a shift
+start | Integer | NULL | Unix timestamp of earliest start time of a registration
+end | Integer | NULL | Unix timestamp of latest start time of a registration
 type | String | All | Supported values: "shift" and "vacation"
 
-## Get Single Shift
+## Get Registration
 
 ```bash
 curl "https://example.ziik.io/api/registrations/123"
@@ -237,7 +238,7 @@ curl "https://example.ziik.io/api/registrations/123"
 }
 ```
 
-This endpoint returns a single shift
+This endpoint returns a registration.
 
 ### HTTP Request
 
@@ -247,7 +248,7 @@ This endpoint returns a single shift
 
 Parameter | Type | Description
 --------- | ---- | -----------
-ID | Integer | The ID of the shift
+ID | Integer | The ID of the registration
 
 ### Permissions Required
 
