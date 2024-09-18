@@ -4,6 +4,7 @@ export default {
 	// title: "Ziik API Documentation",
 	// description: "Ziik is the complete solution for internal communication.",
 	theme: defaultTheme({
+		lastUpdated: false,
 		navbar: [
 			{ text: "Home", link: "/" },
 			{ text: "Ziik.io", link: "https://ziik.io" },
