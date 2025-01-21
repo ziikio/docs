@@ -63,6 +63,7 @@ Location: https://example.ziik.io/api/folders/1234
   }
 }
 ```
+
 This endpoint creates a new folder.
 
 ### HTTP Request
@@ -71,26 +72,26 @@ This endpoint creates a new folder.
 
 ### Request Parameters
 
-Parameter | Type | Required | Description
---------- | ---- |  ------- | -----------
-name | String | Yes | Name of the new folder.
-parent | Integer | Yes | Parent folder of the new folder.
-visibility | Array | No | Array of the following values if applicable
--units | Array | No | Array of unit IDs to assign to the new folder if it is to be shared
--units_falldown | Array | No | Array of unit IDs to assign to the new folder with falldown to sub-units
-- userTypes | Array | No | Not used for personal folders. Array with the following parameters
--- read | Array | No | user type IDs to allow read access to the new folder
--- write | Array | No | user type IDs to allow write access to the new folder
--- manage | Array | No | user type IDs to allow manage access of the new folder
-sharing | Array | No | Array of the following, if applicable
--shares | Array | No | Shares with users
--- read | Array | No | user IDs to allow shared read access
--- write | Array | No | user IDs to allow shared access with write permissions
--- manage | Array | No | user IDs to allow shared access with manage permissions
+| Parameter       | Type    | Required | Description                                                              |
+| --------------- | ------- | -------- | ------------------------------------------------------------------------ |
+| name            | String  | Yes      | Name of the new folder.                                                  |
+| parent          | Integer | Yes      | Parent folder of the new folder.                                         |
+| visibility      | Array   | No       | Array of the following values if applicable                              |
+| -units          | Array   | No       | Array of unit IDs to assign to the new folder if it is to be shared      |
+| -units_falldown | Array   | No       | Array of unit IDs to assign to the new folder with falldown to sub-units |
+| - userTypes     | Array   | No       | Not used for personal folders. Array with the following parameters       |
+| -- read         | Array   | No       | user type IDs to allow read access to the new folder                     |
+| -- write        | Array   | No       | user type IDs to allow write access to the new folder                    |
+| -- manage       | Array   | No       | user type IDs to allow manage access of the new folder                   |
+| sharing         | Array   | No       | Array of the following, if applicable                                    |
+| -shares         | Array   | No       | Shares with users                                                        |
+| -- read         | Array   | No       | user IDs to allow shared read access                                     |
+| -- write        | Array   | No       | user IDs to allow shared access with write permissions                   |
+| -- manage       | Array   | No       | user IDs to allow shared access with manage permissions                  |
 
 ### Permissions Required
 
-* Access to parent folder
+-   Access to parent folder
 
 ## Get Folders
 
@@ -103,134 +104,134 @@ curl "https://example.ziik.io/api/folders"
 
 ```json
 {
-  "data": [
-    {
-      "id": 3,
-      "content_type": "folder",
-      "name": "aperiam",
-      "parent": null,
-      "root": 3,
-      "owner": {
-        "content_type": "user",
-        "id": 5,
-        "name": "Vernice Wilderman",
-        "first_name": "Vernice",
-        "last_name": "Wilderman",
-        "title": "Order Clerk",
-        "avatar": null,
-        "active": true,
-        "unit": {
-          "content_type": "unit",
-          "id": 1,
-          "name": "HQ",
-          "level": 0,
-          "unit_type": "unit",
-          "url": "api/units/1"
-        },
-        "url": "api/users/5"
-      },
-      "publish": {
-        "created_at": 1540458166,
-        "updated_at": 1540458166
-      },
-      "sharing": {
-        "shared": false,
-        "shares": [],
-        "inheritedShares": []
-      },
-      "visibility": {
-        "units": [
-          {
-            "content_type": "unit",
-            "id": 1,
-            "name": "HQ",
-            "level": 0,
-            "unit_type": "unit",
-            "falldown": false,
-            "url": "api/units/1"
-          }
-        ],
-        "userTypes": [
-          {
-            "id": 1,
-            "name": "Manager",
-            "rights": "manage"
-          },
-          {
-            "id": 2,
-            "name": "Employee",
-            "rights": "manage"
-          }
-        ]
-      },
-      "permissions": {
-        "edit": true,
-        "delete": true,
-        "add": true
-      },
-      "url": "api/folders/3"
-    },
-    {
-      "id": 8,
-      "content_type": "folder",
-      "name": "blanditiis",
-      "parent": null,
-      "root": 8,
-      "owner": {
-        "content_type": "user",
-        "id": 2,
-        "name": "Gardner Osinski",
-        "first_name": "Gardner",
-        "last_name": "Osinski",
-        "title": "Driver-Sales Worker",
-        "avatar": null,
-        "active": true,
-        "unit": {
-          "content_type": "unit",
-          "id": 1,
-          "name": "HQ",
-          "level": 0,
-          "unit_type": "unit",
-          "url": "api/units/1"
-        },
-        "url": "api/users/2"
-      },
-      "publish": {
-        "created_at": 1540458166,
-        "updated_at": 1540458166
-      },
-      "sharing": {
-        "shared": false,
-        "shares": [],
-        "inheritedShares": []
-      },
-      "visibility": {
-        "units": [],
-        "userTypes": []
-      },
-      "permissions": {
-        "edit": true,
-        "delete": true,
-        "add": true
-      },
-      "url": "api/folders/8"
-    }
-  ],
-  "links": {
-    "first": "https://example.ziik.io/api/folders?page=1",
-    "last": "https://example.ziik.io/api/folders?page=1",
-    "prev": null,
-    "next": null
-  },
-  "meta": {
-    "current_page": 1,
-    "from": 1,
-    "last_page": 1,
-    "path": "https://example.ziik.io/api/folders",
-    "per_page": 50,
-    "to": 2,
-    "total": 2
-  }
+	"data": [
+		{
+			"id": 3,
+			"content_type": "folder",
+			"name": "aperiam",
+			"parent": null,
+			"root": 3,
+			"owner": {
+				"content_type": "user",
+				"id": 5,
+				"name": "Vernice Wilderman",
+				"first_name": "Vernice",
+				"last_name": "Wilderman",
+				"title": "Order Clerk",
+				"avatar": null,
+				"active": true,
+				"unit": {
+					"content_type": "unit",
+					"id": 1,
+					"name": "HQ",
+					"level": 0,
+					"unit_type": "unit",
+					"url": "api/units/1"
+				},
+				"url": "api/users/5"
+			},
+			"publish": {
+				"created_at": 1540458166,
+				"updated_at": 1540458166
+			},
+			"sharing": {
+				"shared": false,
+				"shares": [],
+				"inheritedShares": []
+			},
+			"visibility": {
+				"units": [
+					{
+						"content_type": "unit",
+						"id": 1,
+						"name": "HQ",
+						"level": 0,
+						"unit_type": "unit",
+						"falldown": false,
+						"url": "api/units/1"
+					}
+				],
+				"userTypes": [
+					{
+						"id": 1,
+						"name": "Manager",
+						"rights": "manage"
+					},
+					{
+						"id": 2,
+						"name": "Employee",
+						"rights": "manage"
+					}
+				]
+			},
+			"permissions": {
+				"edit": true,
+				"delete": true,
+				"add": true
+			},
+			"url": "api/folders/3"
+		},
+		{
+			"id": 8,
+			"content_type": "folder",
+			"name": "blanditiis",
+			"parent": null,
+			"root": 8,
+			"owner": {
+				"content_type": "user",
+				"id": 2,
+				"name": "Gardner Osinski",
+				"first_name": "Gardner",
+				"last_name": "Osinski",
+				"title": "Driver-Sales Worker",
+				"avatar": null,
+				"active": true,
+				"unit": {
+					"content_type": "unit",
+					"id": 1,
+					"name": "HQ",
+					"level": 0,
+					"unit_type": "unit",
+					"url": "api/units/1"
+				},
+				"url": "api/users/2"
+			},
+			"publish": {
+				"created_at": 1540458166,
+				"updated_at": 1540458166
+			},
+			"sharing": {
+				"shared": false,
+				"shares": [],
+				"inheritedShares": []
+			},
+			"visibility": {
+				"units": [],
+				"userTypes": []
+			},
+			"permissions": {
+				"edit": true,
+				"delete": true,
+				"add": true
+			},
+			"url": "api/folders/8"
+		}
+	],
+	"links": {
+		"first": "https://example.ziik.io/api/folders?page=1",
+		"last": "https://example.ziik.io/api/folders?page=1",
+		"prev": null,
+		"next": null
+	},
+	"meta": {
+		"current_page": 1,
+		"from": 1,
+		"last_page": 1,
+		"path": "https://example.ziik.io/api/folders",
+		"per_page": 50,
+		"to": 2,
+		"total": 2
+	}
 }
 ```
 
@@ -240,7 +241,7 @@ If a parent ID is supplied, sub-folders to that folder are returned.
 
 If no parent ID is supplied, root folders are returned, without folders shared directly with the current user.
 
-If sharesOnly parameter is set, only folders shared directly with the user (i.e. not through units and user types) will be returned. 
+If sharesOnly parameter is set, only folders shared directly with the user (i.e. not through units and user types) will be returned.
 
 Folders are restricted by user types and units.
 
@@ -250,12 +251,12 @@ Folders are restricted by user types and units.
 
 ### Query Parameters
 
-Parameter | Type | Default | Description
---------- | ---- | ------: | -----------
-parent | Integer | 0 | ID of the parent folder to fetch folders for
-page | Integer | 1 | Page number for pagination.
-limit | Integer | 500 | Number of records to return per page.
-sharesOnly | Boolean | false | Whether to return folders shared with the current user
+| Parameter  | Type    | Default | Description                                            |
+| ---------- | ------- | ------: | ------------------------------------------------------ |
+| parent     | Integer |       0 | ID of the parent folder to fetch folders for           |
+| page       | Integer |       1 | Page number for pagination.                            |
+| limit      | Integer |     500 | Number of records to return per page.                  |
+| sharesOnly | Boolean |   false | Whether to return folders shared with the current user |
 
 ## Get Folder Hierarchy
 
@@ -268,107 +269,107 @@ curl "https://example.ziik.io/api/folders/tree"
 
 ```json
 {
-  "data": [
-    {
-      "id": 1,
-      "content_type": "folder",
-      "name": "eos",
-      "parent": null,
-      "root": 1,
-      "owner": {
-        "content_type": "user",
-        "id": 3,
-        "name": "Jasmin Kilback",
-        "first_name": "Jasmin",
-        "last_name": "Kilback",
-        "title": "Physician",
-        "avatar": null,
-        "active": true,
-        "unit": {
-          "content_type": "unit",
-          "id": 1,
-          "name": "HQ",
-          "level": 0,
-          "unit_type": "unit",
-          "url": "api/units/1"
-        },
-        "url": "api/users/3"
-      },
-      "publish": {
-        "created_at": 1540458306,
-        "updated_at": 1540458306
-      },
-      "sharing": {
-        "shared": false,
-        "shares": [],
-        "inheritedShares": []
-      },
-      "visibility": {
-        "units": [
-          {
-            "content_type": "unit",
-            "id": 1,
-            "name": "HQ",
-            "level": 0,
-            "unit_type": "unit",
-            "falldown": false,
-            "url": "api/units/1"
-          }
-        ],
-        "userTypes": [
-          {
-            "id": 1,
-            "name": "Manager",
-            "rights": "manage"
-          },
-          {
-            "id": 2,
-            "name": "Employee",
-            "rights": "manage"
-          }
-        ]
-      },
-      "children": [
-        {
-          "id": 3,
-          "content_type": "folder",
-          "name": "deserunt",
-          "parent": 1,
-          "root": 1,
-          "publish": {
-            "created_at": 1540458306,
-            "updated_at": 1540458306
-          },
-          "visibility": {
-            "units": [
-              {
-                "content_type": "unit",
-                "id": 1,
-                "name": "HQ",
-                "level": 0,
-                "unit_type": "unit",
-                "falldown": false,
-                "url": "api/units/1"
-              }
-            ]
-          },
-          "children": [],
-          "permissions": {
-            "edit": true,
-            "delete": true,
-            "add": true
-          },
-          "url": "api/folders/3"
-        }
-      ],
-      "permissions": {
-        "edit": true,
-        "delete": true,
-        "add": true
-      },
-      "url": "api/folders/1"
-    }
-  ]
+	"data": [
+		{
+			"id": 1,
+			"content_type": "folder",
+			"name": "eos",
+			"parent": null,
+			"root": 1,
+			"owner": {
+				"content_type": "user",
+				"id": 3,
+				"name": "Jasmin Kilback",
+				"first_name": "Jasmin",
+				"last_name": "Kilback",
+				"title": "Physician",
+				"avatar": null,
+				"active": true,
+				"unit": {
+					"content_type": "unit",
+					"id": 1,
+					"name": "HQ",
+					"level": 0,
+					"unit_type": "unit",
+					"url": "api/units/1"
+				},
+				"url": "api/users/3"
+			},
+			"publish": {
+				"created_at": 1540458306,
+				"updated_at": 1540458306
+			},
+			"sharing": {
+				"shared": false,
+				"shares": [],
+				"inheritedShares": []
+			},
+			"visibility": {
+				"units": [
+					{
+						"content_type": "unit",
+						"id": 1,
+						"name": "HQ",
+						"level": 0,
+						"unit_type": "unit",
+						"falldown": false,
+						"url": "api/units/1"
+					}
+				],
+				"userTypes": [
+					{
+						"id": 1,
+						"name": "Manager",
+						"rights": "manage"
+					},
+					{
+						"id": 2,
+						"name": "Employee",
+						"rights": "manage"
+					}
+				]
+			},
+			"children": [
+				{
+					"id": 3,
+					"content_type": "folder",
+					"name": "deserunt",
+					"parent": 1,
+					"root": 1,
+					"publish": {
+						"created_at": 1540458306,
+						"updated_at": 1540458306
+					},
+					"visibility": {
+						"units": [
+							{
+								"content_type": "unit",
+								"id": 1,
+								"name": "HQ",
+								"level": 0,
+								"unit_type": "unit",
+								"falldown": false,
+								"url": "api/units/1"
+							}
+						]
+					},
+					"children": [],
+					"permissions": {
+						"edit": true,
+						"delete": true,
+						"add": true
+					},
+					"url": "api/folders/3"
+				}
+			],
+			"permissions": {
+				"edit": true,
+				"delete": true,
+				"add": true
+			},
+			"url": "api/folders/1"
+		}
+	]
 }
 ```
 
@@ -384,12 +385,13 @@ If a folder ID is supplied in the exclude parameter, that folder and its sub-fol
 
 ### Query Parameters
 
-Parameter | Type | Default | Description
---------- | ---- | ------: | -----------
-root | Integer | 0 | ID of the folder to set as root of the returned hierarchy.
-exclude | Integer | 0 | ID of a folder to exclude from the result along with its children.
+| Parameter | Type    | Default | Description                                                        |
+| --------- | ------- | ------: | ------------------------------------------------------------------ |
+| root      | Integer |       0 | ID of the folder to set as root of the returned hierarchy.         |
+| exclude   | Integer |       0 | ID of a folder to exclude from the result along with its children. |
 
 ## Get Folder Parents
+
 ```bash
 curl "https://example.ziik.io/api/folders/123/parents"
   -H "Authorization: Bearer aaaaaaaaa.bbbbbbbbb.cccccccccc"
@@ -399,140 +401,140 @@ curl "https://example.ziik.io/api/folders/123/parents"
 
 ```json
 {
-  "data": [
-    {
-      "id": 1,
-      "content_type": "folder",
-      "name": "repellendus",
-      "parent": 0,
-      "root": 1,
-      "owner": {
-        "content_type": "user",
-        "id": 3,
-        "name": "Junius Glover",
-        "first_name": "Junius",
-        "last_name": "Glover",
-        "title": "Loan Interviewer",
-        "avatar": null,
-        "active": true,
-        "unit": {
-          "content_type": "unit",
-          "id": 1,
-          "name": "HQ",
-          "level": 0,
-          "unit_type": "unit",
-          "url": "api/units/1"
-        },
-        "url": "api/users/3"
-      },
-      "publish": {
-        "created_at": 1540458503,
-        "updated_at": 1540458503
-      },
-      "sharing": {
-        "shared": false,
-        "shares": [],
-        "inheritedShares": []
-      },
-      "visibility": {
-        "units": [
-          {
-            "content_type": "unit",
-            "id": 1,
-            "name": "HQ",
-            "level": 0,
-            "unit_type": "unit",
-            "falldown": false,
-            "url": "api/units/1"
-          }
-        ],
-        "userTypes": [
-          {
-            "id": 1,
-            "name": "Manager",
-            "rights": "manage"
-          },
-          {
-            "id": 2,
-            "name": "Employee",
-            "rights": "manage"
-          }
-        ]
-      },
-      "permissions": {
-        "edit": true,
-        "delete": true,
-        "add": true
-      },
-      "url": "api/folders/1"
-    },
-    {
-      "id": 2,
-      "content_type": "folder",
-      "name": "aliquam",
-      "parent": 1,
-      "root": 1,
-      "owner": {
-        "content_type": "user",
-        "id": 4,
-        "name": "Maggie Doyle",
-        "first_name": "Maggie",
-        "last_name": "Doyle",
-        "title": "Textile Machine Operator",
-        "avatar": null,
-        "active": true,
-        "unit": {
-          "content_type": "unit",
-          "id": 1,
-          "name": "HQ",
-          "level": 0,
-          "unit_type": "unit",
-          "url": "api/units/1"
-        },
-        "url": "api/users/4"
-      },
-      "publish": {
-        "created_at": 1540458503,
-        "updated_at": 1540458503
-      },
-      "sharing": {
-        "shared": false,
-        "shares": [],
-        "inheritedShares": []
-      },
-      "visibility": {
-        "units": [
-          {
-            "content_type": "unit",
-            "id": 1,
-            "name": "HQ",
-            "level": 0,
-            "unit_type": "unit",
-            "falldown": false,
-            "url": "api/units/1"
-          }
-        ],
-        "userTypes": [
-          {
-            "id": 1,
-            "name": "Manager",
-            "rights": "manage"
-          },
-          {
-            "id": 2,
-            "name": "Employee",
-            "rights": "manage"
-          }
-        ]
-      },
-      "permissions": {
-        "edit": true,
-        "delete": true,
-        "add": true
-      },
-      "url": "api/folders/2"
-    }
-  ]
+	"data": [
+		{
+			"id": 1,
+			"content_type": "folder",
+			"name": "repellendus",
+			"parent": 0,
+			"root": 1,
+			"owner": {
+				"content_type": "user",
+				"id": 3,
+				"name": "Junius Glover",
+				"first_name": "Junius",
+				"last_name": "Glover",
+				"title": "Loan Interviewer",
+				"avatar": null,
+				"active": true,
+				"unit": {
+					"content_type": "unit",
+					"id": 1,
+					"name": "HQ",
+					"level": 0,
+					"unit_type": "unit",
+					"url": "api/units/1"
+				},
+				"url": "api/users/3"
+			},
+			"publish": {
+				"created_at": 1540458503,
+				"updated_at": 1540458503
+			},
+			"sharing": {
+				"shared": false,
+				"shares": [],
+				"inheritedShares": []
+			},
+			"visibility": {
+				"units": [
+					{
+						"content_type": "unit",
+						"id": 1,
+						"name": "HQ",
+						"level": 0,
+						"unit_type": "unit",
+						"falldown": false,
+						"url": "api/units/1"
+					}
+				],
+				"userTypes": [
+					{
+						"id": 1,
+						"name": "Manager",
+						"rights": "manage"
+					},
+					{
+						"id": 2,
+						"name": "Employee",
+						"rights": "manage"
+					}
+				]
+			},
+			"permissions": {
+				"edit": true,
+				"delete": true,
+				"add": true
+			},
+			"url": "api/folders/1"
+		},
+		{
+			"id": 2,
+			"content_type": "folder",
+			"name": "aliquam",
+			"parent": 1,
+			"root": 1,
+			"owner": {
+				"content_type": "user",
+				"id": 4,
+				"name": "Maggie Doyle",
+				"first_name": "Maggie",
+				"last_name": "Doyle",
+				"title": "Textile Machine Operator",
+				"avatar": null,
+				"active": true,
+				"unit": {
+					"content_type": "unit",
+					"id": 1,
+					"name": "HQ",
+					"level": 0,
+					"unit_type": "unit",
+					"url": "api/units/1"
+				},
+				"url": "api/users/4"
+			},
+			"publish": {
+				"created_at": 1540458503,
+				"updated_at": 1540458503
+			},
+			"sharing": {
+				"shared": false,
+				"shares": [],
+				"inheritedShares": []
+			},
+			"visibility": {
+				"units": [
+					{
+						"content_type": "unit",
+						"id": 1,
+						"name": "HQ",
+						"level": 0,
+						"unit_type": "unit",
+						"falldown": false,
+						"url": "api/units/1"
+					}
+				],
+				"userTypes": [
+					{
+						"id": 1,
+						"name": "Manager",
+						"rights": "manage"
+					},
+					{
+						"id": 2,
+						"name": "Employee",
+						"rights": "manage"
+					}
+				]
+			},
+			"permissions": {
+				"edit": true,
+				"delete": true,
+				"add": true
+			},
+			"url": "api/folders/2"
+		}
+	]
 }
 ```
 
@@ -544,9 +546,9 @@ This endpoint retrieves a list of folders that are parent or parent's parent to 
 
 ### URL Parameters
 
-Parameter | Type | Description
---------- | ---- | -----------
-id | Integer | ID of the folder to get parents for
+| Parameter | Type    | Description                         |
+| --------- | ------- | ----------------------------------- |
+| id        | Integer | ID of the folder to get parents for |
 
 ## Get Single Folder
 
@@ -559,72 +561,72 @@ curl "https://example.ziik.io/api/folders/121"
 
 ```json
 {
-  "data": {
-    "id": 1,
-    "content_type": "folder",
-    "name": "incidunt",
-    "parent": 0,
-    "root": 1,
-    "owner": {
-      "content_type": "user",
-      "id": 3,
-      "name": "Abdullah Schneider",
-      "first_name": "Abdullah",
-      "last_name": "Schneider",
-      "title": "Medical Secretary",
-      "avatar": null,
-      "active": true,
-      "unit": {
-        "content_type": "unit",
-        "id": 1,
-        "name": "HQ",
-        "level": 0,
-        "unit_type": "unit",
-        "url": "api/units/1"
-      },
-      "url": "api/users/3"
-    },
-    "publish": {
-      "created_at": 1540458599,
-      "updated_at": 1540458599
-    },
-    "sharing": {
-      "shared": false,
-      "shares": [],
-      "inheritedShares": []
-    },
-    "visibility": {
-      "units": [
-        {
-          "content_type": "unit",
-          "id": 1,
-          "name": "HQ",
-          "level": 0,
-          "unit_type": "unit",
-          "falldown": false,
-          "url": "api/units/1"
-        }
-      ],
-      "userTypes": [
-        {
-          "id": 1,
-          "name": "Manager",
-          "rights": "manage"
-        },
-        {
-          "id": 2,
-          "name": "Employee",
-          "rights": "manage"
-        }
-      ]
-    },
-    "permissions": {
-      "edit": true,
-      "delete": true,
-      "add": true
-    },
-    "url": "api/folders/1"
-  }
+	"data": {
+		"id": 1,
+		"content_type": "folder",
+		"name": "incidunt",
+		"parent": 0,
+		"root": 1,
+		"owner": {
+			"content_type": "user",
+			"id": 3,
+			"name": "Abdullah Schneider",
+			"first_name": "Abdullah",
+			"last_name": "Schneider",
+			"title": "Medical Secretary",
+			"avatar": null,
+			"active": true,
+			"unit": {
+				"content_type": "unit",
+				"id": 1,
+				"name": "HQ",
+				"level": 0,
+				"unit_type": "unit",
+				"url": "api/units/1"
+			},
+			"url": "api/users/3"
+		},
+		"publish": {
+			"created_at": 1540458599,
+			"updated_at": 1540458599
+		},
+		"sharing": {
+			"shared": false,
+			"shares": [],
+			"inheritedShares": []
+		},
+		"visibility": {
+			"units": [
+				{
+					"content_type": "unit",
+					"id": 1,
+					"name": "HQ",
+					"level": 0,
+					"unit_type": "unit",
+					"falldown": false,
+					"url": "api/units/1"
+				}
+			],
+			"userTypes": [
+				{
+					"id": 1,
+					"name": "Manager",
+					"rights": "manage"
+				},
+				{
+					"id": 2,
+					"name": "Employee",
+					"rights": "manage"
+				}
+			]
+		},
+		"permissions": {
+			"edit": true,
+			"delete": true,
+			"add": true
+		},
+		"url": "api/folders/1"
+	}
 }
 ```
 
@@ -636,13 +638,13 @@ This endpoint returns a single folder by its ID.
 
 ### URL Parameters
 
-Parameter | Type | Description
---------- | ---- | -----------
-ID | Integer | The ID of the folder to retrieve`
+| Parameter | Type    | Description                       |
+| --------- | ------- | --------------------------------- |
+| ID        | Integer | The ID of the folder to retrieve` |
 
 ### Permissions Required
 
-* Access to folder - Either as owner, through units and usertypes or by direct sharing.
+-   Access to folder - Either as owner, through units and usertypes or by direct sharing.
 
 ## Edit Existing Folder
 
@@ -657,6 +659,7 @@ curl -i -X PATCH "https://example.ziik.io/api/folders/121"
 ```http
 HTTP/1.0 204 No Content
 ```
+
 This endpoint updates an existing folder.
 
 ### HTTP Request
@@ -665,26 +668,25 @@ This endpoint updates an existing folder.
 
 ### Request Parameters
 
-Parameter | Type | Required | Description
---------- | ---- |  ------- | -----------
-name | String | No | New name of the folder.
-parent | Integer | No | New parent folder.
-visibility | Array | No | Array of the following values if applicable
-- units | Array | No | Array of unit IDs to assign to the new folder if it is to be shared
-- units_falldown | Array | No | Array of unit IDs to assign to the new folder with falldown to sub-units
-- userTypes | Array | No | Not used for personal folders. Array with the following parameters
--- read | Array | No | user type IDs to allow read access to the new folder
--- write | Array | No | user type IDs to allow write access to the new folder
--- manage | Array | No | user type IDs to allow manage access of the new folder
-sharing | Array | No | Array of the following, if applicable
-- shares | Array | No | Shares with users
--- read | Array | No | user IDs to allow shared read access
--- write | Array | No | user IDs to allow shared access with write permissions
--- manage | Array | No | user IDs to allow shared access with manage permissions
+| Parameter        | Type   | Required | Description                                                              |
+| ---------------- | ------ | -------- | ------------------------------------------------------------------------ |
+| name             | String | No       | New name of the folder.                                                  |
+| visibility       | Array  | No       | Array of the following values if applicable                              |
+| - units          | Array  | No       | Array of unit IDs to assign to the new folder if it is to be shared      |
+| - units_falldown | Array  | No       | Array of unit IDs to assign to the new folder with falldown to sub-units |
+| - userTypes      | Array  | No       | Not used for personal folders. Array with the following parameters       |
+| -- read          | Array  | No       | user type IDs to allow read access to the new folder                     |
+| -- write         | Array  | No       | user type IDs to allow write access to the new folder                    |
+| -- manage        | Array  | No       | user type IDs to allow manage access of the new folder                   |
+| sharing          | Array  | No       | Array of the following, if applicable                                    |
+| - shares         | Array  | No       | Shares with users                                                        |
+| -- read          | Array  | No       | user IDs to allow shared read access                                     |
+| -- write         | Array  | No       | user IDs to allow shared access with write permissions                   |
+| -- manage        | Array  | No       | user IDs to allow shared access with manage permissions                  |
 
 ### Permissions Required
 
-* Manage permission to folder
+-   Manage permission to folder
 
 ## Delete a Folder
 
@@ -707,11 +709,11 @@ This endpoint deletes a folder.
 
 ### URL Parameters
 
-Parameter | Type | Description
---------- | ---- | -----------
-ID | Integer | The ID of the folder to delete
+| Parameter | Type    | Description                    |
+| --------- | ------- | ------------------------------ |
+| ID        | Integer | The ID of the folder to delete |
 
 ### Permissions Required
 
-* Manage access to folder
-* OR creator of folder
+-   Manage access to folder
+-   OR creator of folder
