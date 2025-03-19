@@ -10,43 +10,46 @@ curl -i -X POST "https://example.ziik.io/api/users"
 
 > The above command returns 201 Created with a location header for where to find the newly created user
 
-```http
-HTTP/1.0 201 Created
-Location: https://example.ziik.io/api/users/1234
+```json
 {
-  "data": {
-    "content_type": "user",
-    "id": 3,
-    "reference": "ext-243-b4",
-    "name": "New User",
-    "first_name": "New",
-    "last_name": "User",
-    "title": null,
-    "active": true,
-    "ask_about": null,
-    "country": null,
-    "quote": "",
-    "description": "",
-    "phone": null,
-    "email": "test@example.com",
-    "birthday": null,
-    "policy_accept": false,
-    "latest_release": 5,
-    "settings": {
-      "timezone": null,
-      "show_birthdays": "none",
-      "birthdays_optout": true,
-      "expire": null,
-      "language": "en"
-    },
-    "admin": false,
-    "system_admin": false,
-    "permissions": {
-      "edit": true,
-      "delete": true
-    },
-    "url": "api/users/3"
-  }
+	"data": {
+		"content_type": "user",
+		"id": 3,
+		"reference": "ext-243-b4",
+		"name": "New User",
+		"first_name": "New",
+		"last_name": "User",
+		"title": null,
+		"active": true,
+		"ask_about": null,
+		"country": null,
+		"quote": "",
+		"description": "",
+		"phone": null,
+		"email": "test@example.com",
+		"birthday": null,
+		"policy_accept": false,
+		"latest_release": 5,
+		"settings": {
+			"timezone": null,
+			"show_birthdays": "none",
+			"birthdays_optout": true,
+			"expire": null,
+			"language": "en"
+		},
+		"admin": false,
+		"system_admin": false,
+		"permissions": {
+			"edit": true,
+			"delete": true
+		},
+		"url": "api/users/3",
+		"meta_field_0": null,
+		"meta_field_1": null,
+		"meta_field_2": null,
+		"meta_field_3": null,
+		"meta_field_4": null
+	}
 }
 ```
 
@@ -80,6 +83,11 @@ This endpoint creates a new user.
 | - language         | String  | No       | User's language in ISO 639-1 Code - provided the language is available in Ziik                                   |
 | - expire           | Integer | No       | Unix timestamp of when this user should expire and automatically be deactivated                                  |
 | welcome            | Boolean | No       | Whether to send a welcome mail to the created user. Defaults to true                                             |
+| meta_field_0       | String  | No       | Meta field 0 value. Must be a string of maximum 255 characters or NULL                                           |
+| meta_field_1       | String  | No       | Meta field 1 value. Must be a string of maximum 255 characters or NULL                                           |
+| meta_field_2       | String  | No       | Meta field 2 value. Must be a string of maximum 255 characters or NULL                                           |
+| meta_field_3       | String  | No       | Meta field 3 value. Must be a string of maximum 255 characters or NULL                                           |
+| meta_field_4       | String  | No       | Meta field 4 value. Must be a string of maximum 255 characters or NULL                                           |
 
 ### Permissions Required
 
@@ -126,7 +134,12 @@ curl "http://example.ziik.io/api/users"
 				"parent": null,
 				"url": "api/units/1"
 			},
-			"url": "api/users/3"
+			"url": "api/users/3",
+			"meta_field_0": null,
+			"meta_field_1": null,
+			"meta_field_2": null,
+			"meta_field_3": null,
+			"meta_field_4": null
 		}
 	],
 	"links": {
@@ -232,7 +245,12 @@ curl "http://example.ziik.io/api/users/123"
 			"parent": null,
 			"url": "api/units/1"
 		},
-		"url": "api/users/3"
+		"url": "api/users/3",
+		"meta_field_0": null,
+		"meta_field_1": null,
+		"meta_field_2": null,
+		"meta_field_3": null,
+		"meta_field_4": null
 	}
 }
 ```
@@ -388,7 +406,12 @@ curl "http://example.ziik.io/api/users/current"
 			"parent": null,
 			"url": "api/units/1"
 		},
-		"url": "api/users/3"
+		"url": "api/users/3",
+		"meta_field_0": null,
+		"meta_field_1": null,
+		"meta_field_2": null,
+		"meta_field_3": null,
+		"meta_field_4": null
 	}
 }
 ```
@@ -467,7 +490,12 @@ curl "http://example.ziik.io/api/users/reference/absc-dads"
 			"parent": null,
 			"url": "api/units/1"
 		},
-		"url": "api/users/3"
+		"url": "api/users/3",
+		"meta_field_0": null,
+		"meta_field_1": null,
+		"meta_field_2": null,
+		"meta_field_3": null,
+		"meta_field_4": null
 	}
 }
 ```
@@ -528,7 +556,12 @@ curl "http://example.ziik.io/api/users/search"
 				"edit": false,
 				"delete": false
 			},
-			"url": "api/users/4"
+			"url": "api/users/4",
+			"meta_field_0": null,
+			"meta_field_1": null,
+			"meta_field_2": null,
+			"meta_field_3": null,
+			"meta_field_4": null
 		}
 	],
 	"links": {
@@ -614,6 +647,11 @@ This endpoint updates an existing user.
 | - birthdays_optout | Boolean | No       | If opted out, this user's birthday will not show up in other users' calendar                                                                                                               |
 | - language         | String  | No       | User's language in ISO 639-1 Code - provided the language is available in Ziik                                                                                                             |
 | - expire           | Integer | No       | Unix timestamp of when this user should expire and automatically be deactivated                                                                                                            |
+| meta_field_0       | String  | No       | Meta field 0 value. Must be a string of maximum 255 characters or NULL                                                                                                                     |
+| meta_field_1       | String  | No       | Meta field 1 value. Must be a string of maximum 255 characters or NULL                                                                                                                     |
+| meta_field_2       | String  | No       | Meta field 2 value. Must be a string of maximum 255 characters or NULL                                                                                                                     |
+| meta_field_3       | String  | No       | Meta field 3 value. Must be a string of maximum 255 characters or NULL                                                                                                                     |
+| meta_field_4       | String  | No       | Meta field 4 value. Must be a string of maximum 255 characters or NULL                                                                                                                     |
 
 ### Permissions Required
 
