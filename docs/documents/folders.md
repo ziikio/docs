@@ -770,7 +770,7 @@ curl -i -X POST "https://example.ziik.io/api/file/{file}/finalise"
 - We can use this endpoint to track the progress of the processing
 - The timestamp should just be the current timestamp in unix seconds. For example 1742376166
 ```bash
-curl -i -X POST "https://example.ziik.io/api/file/80/info/{timestamp}"
+curl -i -X POST "https://example.ziik.io/api/file/{file}/info/{timestamp}"
   -H "Authorization: Bearer aaaaaaaaa.bbbbbbbbb.cccccccccc"
 ```
 The body will differ for a processed file and a processing file
@@ -789,9 +789,7 @@ The body will differ for a processed file and a processing file
       "processing":true,
       "source":"https://example.ziik.io/api/file/12521/1742372593",
       "stream":"https://example.ziik.io/api/file/12521/1742372593",
-      "versions":[
-         
-      ],
+      "versions":[],
       "screenshot":null,
       "date":1742372593,
       "created_at":1742372593,
